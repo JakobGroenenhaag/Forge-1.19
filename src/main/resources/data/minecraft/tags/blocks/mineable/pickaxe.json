@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "tutorialmod:red_gem_block",
+    "tutorialmod:yellow_gem_ore",
+    "tutorialmod:deepslate_yellow_gem_ore",
+    "tutorialmod:jumpy_block",
+    "tutorialmod:yellow_gem_lamp"
+  ]
+}

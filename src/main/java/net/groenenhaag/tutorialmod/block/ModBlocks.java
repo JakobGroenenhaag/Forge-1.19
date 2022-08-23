@@ -1,6 +1,8 @@
 package net.groenenhaag.tutorialmod.block;
 
 import net.groenenhaag.tutorialmod.TutorialMod;
+import net.groenenhaag.tutorialmod.block.custom.JumpyBlock;
+import net.groenenhaag.tutorialmod.block.custom.YellowGemLampBlock;
 import net.groenenhaag.tutorialmod.item.ModCreativeModeTab;
 import net.groenenhaag.tutorialmod.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -33,6 +35,14 @@ public class ModBlocks {
             () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(6f).requiresCorrectToolForDrops(),
                     UniformInt.of(3,7)), ModCreativeModeTab.TUTORIAL_TAB);
+
+    public static final RegistryObject<Block> JUMPY_BLOCK = registerBlock("jumpy_block",
+            () -> new JumpyBlock(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(6f).requiresCorrectToolForDrops()), ModCreativeModeTab.TUTORIAL_TAB);
+    public static final RegistryObject<Block> YELLOW_GEM_LAMP = registerBlock("yellow_gem_lamp",
+            () -> new YellowGemLampBlock(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(6f).requiresCorrectToolForDrops()
+                    .lightLevel(state -> state.getValue(YellowGemLampBlock.LIT) ? 15 : 0)), ModCreativeModeTab.TUTORIAL_TAB);
 
 
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab ) {

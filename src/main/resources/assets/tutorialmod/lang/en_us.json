@@ -1,10 +1,13 @@
 {
   "item.tutorialmod.red_gem": "Red Gem",
   "item.tutorialmod.yellow_gem": "Yellow Gem",
+  "item.tutorialmod.eight_ball": "Eight Ball",
 
   "block.tutorialmod.red_gem_block": "Block of Red Gem",
   "block.tutorialmod.yellow_gem_ore": "Yellow Gem Ore",
   "block.tutorialmod.deepslate_yellow_gem_ore": "Deepslate Yellow Gem Ore",
+  "block.tutorialmod.jumpy_block": "Jumpy Block",
+  "block.tutorialmod.yellow_gem_lamp": "Yellow Gem Lamp",
 
   "itemGroup.tutorialtab": "Tutorial Tab"
 }

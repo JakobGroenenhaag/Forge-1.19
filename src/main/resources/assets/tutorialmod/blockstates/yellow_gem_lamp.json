@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "lit=true": { "model": "tutorialmod:block/yellow_gem_lamp_on" },
+    "lit=false": { "model": "tutorialmod:block/yellow_gem_lamp_off" }
+  }
+}

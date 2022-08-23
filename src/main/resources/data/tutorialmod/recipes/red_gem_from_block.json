@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients":  [
+    {
+      "item": "tutorialmod:red_gem_block"
+    }
+  ],
+  "result": {
+    "item": "tutorialmod:red_gem",
+    "count": 9
+  }
+}
