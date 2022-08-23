@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "tutorialmod:block/tome",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "tutorialmod:block/tome",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "tutorialmod:block/tome"
+    },
+    "facing=west": {
+      "model": "tutorialmod:block/tome",
+      "y": 90
+    }
+  }
+}

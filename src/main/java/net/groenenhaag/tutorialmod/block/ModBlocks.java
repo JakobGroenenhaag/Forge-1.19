@@ -2,6 +2,7 @@ package net.groenenhaag.tutorialmod.block;
 
 import net.groenenhaag.tutorialmod.TutorialMod;
 import net.groenenhaag.tutorialmod.block.custom.JumpyBlock;
+import net.groenenhaag.tutorialmod.block.custom.TomeBlock;
 import net.groenenhaag.tutorialmod.block.custom.YellowGemLampBlock;
 import net.groenenhaag.tutorialmod.item.ModCreativeModeTab;
 import net.groenenhaag.tutorialmod.item.ModItems;
@@ -43,6 +44,10 @@ public class ModBlocks {
             () -> new YellowGemLampBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(6f).requiresCorrectToolForDrops()
                     .lightLevel(state -> state.getValue(YellowGemLampBlock.LIT) ? 15 : 0)), ModCreativeModeTab.TUTORIAL_TAB);
+    public static final RegistryObject<Block> TOME = registerBlock("tome",
+            () -> new TomeBlock(BlockBehaviour.Properties.of(Material.WOOD)
+                    .strength(1f)
+                    .lightLevel(state -> 3).noOcclusion()), ModCreativeModeTab.TUTORIAL_TAB);
 
 
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab ) {
