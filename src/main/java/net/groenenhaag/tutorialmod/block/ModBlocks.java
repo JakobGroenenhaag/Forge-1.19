@@ -1,9 +1,7 @@
 package net.groenenhaag.tutorialmod.block;
 
 import net.groenenhaag.tutorialmod.TutorialMod;
-import net.groenenhaag.tutorialmod.block.custom.JumpyBlock;
-import net.groenenhaag.tutorialmod.block.custom.TomeBlock;
-import net.groenenhaag.tutorialmod.block.custom.YellowGemLampBlock;
+import net.groenenhaag.tutorialmod.block.custom.*;
 import net.groenenhaag.tutorialmod.item.ModCreativeModeTab;
 import net.groenenhaag.tutorialmod.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -11,6 +9,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -48,6 +47,13 @@ public class ModBlocks {
             () -> new TomeBlock(BlockBehaviour.Properties.of(Material.WOOD)
                     .strength(1f)
                     .lightLevel(state -> 3).noOcclusion()), ModCreativeModeTab.TUTORIAL_TAB);
+    public static final RegistryObject<Block> ITEM_DRAIN = registerBlock("item_drain",
+            () -> new ItemDrainBlock(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(1f).noOcclusion()), ModCreativeModeTab.TUTORIAL_TAB);
+
+    public static final RegistryObject<Block> BLUEBERRY_CROP = BLOCKS.register("blueberry_crop",
+            () -> new BlueberryCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)));
+
 
 
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab ) {

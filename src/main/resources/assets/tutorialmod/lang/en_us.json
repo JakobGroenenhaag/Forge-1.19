@@ -2,6 +2,8 @@
   "item.tutorialmod.red_gem": "Red Gem",
   "item.tutorialmod.yellow_gem": "Yellow Gem",
   "item.tutorialmod.eight_ball": "Eight Ball",
+  "item.tutorialmod.blueberry": "Blueberry",
+  "item.tutorialmod.blueberry_seeds": "Blueberry Seeds",
 
   "block.tutorialmod.red_gem_block": "Block of Red Gem",
   "block.tutorialmod.yellow_gem_ore": "Yellow Gem Ore",
@@ -9,6 +11,10 @@
   "block.tutorialmod.jumpy_block": "Jumpy Block",
   "block.tutorialmod.yellow_gem_lamp": "Yellow Gem Lamp",
   "block.tutorialmod.tome": "Tome",
+  "block.tutorialmod.blueberry_crop": "Blueberries",
+  "block.tutorialmod.item_drain": "Item Drain",
 
-  "itemGroup.tutorialtab": "Tutorial Tab"
+  "itemGroup.tutorialtab": "Tutorial Tab",
+
+  "entity.minecraft.villager.tutorialmod.jump_master": "Jump Master"
 }
