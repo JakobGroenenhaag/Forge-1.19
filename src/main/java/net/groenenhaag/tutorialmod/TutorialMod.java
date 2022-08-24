@@ -5,6 +5,8 @@ import net.groenenhaag.tutorialmod.block.ModBlocks;
 import net.groenenhaag.tutorialmod.item.ModItems;
 import net.groenenhaag.tutorialmod.painting.ModPaintings;
 import net.groenenhaag.tutorialmod.villager.ModVillagers;
+import net.groenenhaag.tutorialmod.world.feature.ModConfiguredFeatures;
+import net.groenenhaag.tutorialmod.world.feature.ModPlacedFeatures;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.common.MinecraftForge;
@@ -31,6 +33,8 @@ public class TutorialMod
         ModBlocks.register(modEventBus);
         ModVillagers.register(modEventBus);
         ModPaintings.register(modEventBus);
+        ModConfiguredFeatures.register(modEventBus);
+        ModPlacedFeatures.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
