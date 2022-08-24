@@ -19,5 +19,8 @@
 
   "itemGroup.tutorialtab": "Tutorial Tab",
 
-  "entity.minecraft.villager.tutorialmod.jump_master": "Jump Master"
+  "entity.minecraft.villager.tutorialmod.jump_master": "Jump Master",
+
+  "key.category.tutorialmod.tutorial": "Tutorial Mod",
+  "key.tutorialmod.drink_water": "Drink Water"
 }
