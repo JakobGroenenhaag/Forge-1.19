@@ -50,6 +50,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> ITEM_DRAIN = registerBlock("item_drain",
             () -> new ItemDrainBlock(BlockBehaviour.Properties.of(Material.METAL)
                     .strength(1f).noOcclusion()), ModCreativeModeTab.TUTORIAL_TAB);
+    public static final RegistryObject<Block> NIGHT_NIGHT_BLOCK = registerBlock("night_night_block",
+            () -> new NightNightBlock(BlockBehaviour.Properties.of(Material.POWDER_SNOW)
+                    .strength(0.2f).dynamicShape()), ModCreativeModeTab.TUTORIAL_TAB);
 
     public static final RegistryObject<Block> BLUEBERRY_CROP = BLOCKS.register("blueberry_crop",
             () -> new BlueberryCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)));

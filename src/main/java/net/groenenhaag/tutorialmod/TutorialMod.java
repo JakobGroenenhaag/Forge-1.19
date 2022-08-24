@@ -3,6 +3,7 @@ package net.groenenhaag.tutorialmod;
 import com.mojang.logging.LogUtils;
 import net.groenenhaag.tutorialmod.block.ModBlocks;
 import net.groenenhaag.tutorialmod.item.ModItems;
+import net.groenenhaag.tutorialmod.painting.ModPaintings;
 import net.groenenhaag.tutorialmod.villager.ModVillagers;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -29,6 +30,7 @@ public class TutorialMod
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModVillagers.register(modEventBus);
+        ModPaintings.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
