@@ -3,6 +3,7 @@ package net.groenenhaag.tutorialmod;
 import com.mojang.logging.LogUtils;
 import net.groenenhaag.tutorialmod.block.ModBlocks;
 import net.groenenhaag.tutorialmod.item.ModItems;
+import net.groenenhaag.tutorialmod.networking.ModMessages;
 import net.groenenhaag.tutorialmod.painting.ModPaintings;
 import net.groenenhaag.tutorialmod.villager.ModVillagers;
 import net.groenenhaag.tutorialmod.world.feature.ModConfiguredFeatures;
@@ -43,8 +44,10 @@ public class TutorialMod
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
+            ModMessages.register();
             ModVillagers.registerPOIs();
         });
+
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
