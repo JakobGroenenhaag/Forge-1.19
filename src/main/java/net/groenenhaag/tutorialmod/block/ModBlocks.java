@@ -2,6 +2,7 @@ package net.groenenhaag.tutorialmod.block;
 
 import net.groenenhaag.tutorialmod.TutorialMod;
 import net.groenenhaag.tutorialmod.block.custom.*;
+import net.groenenhaag.tutorialmod.fluid.ModFluids;
 import net.groenenhaag.tutorialmod.item.ModCreativeModeTab;
 import net.groenenhaag.tutorialmod.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -11,6 +12,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DropExperienceBlock;
+import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -61,6 +63,12 @@ public class ModBlocks {
     public static final RegistryObject<Block> NIGHT_NIGHT_BLOCK = registerBlock("night_night_block",
             () -> new NightNightBlock(BlockBehaviour.Properties.of(Material.POWDER_SNOW)
                     .strength(0.2f).dynamicShape()), ModCreativeModeTab.TUTORIAL_TAB);
+    public static final RegistryObject<Block> TUTORIAL_TABLE = registerBlock("tutorial_table",
+            () -> new TutorialTableBlock(BlockBehaviour.Properties.of(Material.HEAVY_METAL)
+                    .strength(0.2f).noOcclusion()), ModCreativeModeTab.TUTORIAL_TAB);
+
+    public static final RegistryObject<LiquidBlock> SOAP_WATER_BLOCK = BLOCKS.register("soap_water_block",
+            () -> new LiquidBlock(ModFluids.SOURCE_SOAP_WATER, BlockBehaviour.Properties.copy(Blocks.WATER)));
 
     public static final RegistryObject<Block> BLUEBERRY_CROP = BLOCKS.register("blueberry_crop",
             () -> new BlueberryCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)));

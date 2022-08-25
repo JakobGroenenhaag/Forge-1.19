@@ -4,6 +4,8 @@
   "item.tutorialmod.eight_ball": "Eight Ball",
   "item.tutorialmod.blueberry": "Blueberry",
   "item.tutorialmod.blueberry_seeds": "Blueberry Seeds",
+  "item.tutorialmod.soap_water_bucket": "Soap Water Bucket",
+  "item.tutorialmod.orangesword": "An Orange Sword, I Guess",
 
   "block.tutorialmod.red_gem_block": "Block of Red Gem",
   "block.tutorialmod.yellow_gem_ore": "Yellow Gem Ore",
@@ -16,6 +18,7 @@
   "block.tutorialmod.blueberry_crop": "Blueberries",
   "block.tutorialmod.item_drain": "Item Drain",
   "block.tutorialmod.night_night_block": "Night-Night Block",
+  "block.tutorialmod.tutorial_table": "Tutorial Table",
 
   "itemGroup.tutorialtab": "Tutorial Tab",
 
