@@ -2,14 +2,18 @@ package net.groenenhaag.tutorialmod;
 
 import com.mojang.logging.LogUtils;
 import net.groenenhaag.tutorialmod.block.ModBlocks;
+import net.groenenhaag.tutorialmod.block.entity.ModBlockEntities;
 import net.groenenhaag.tutorialmod.fluid.ModFluidTypes;
 import net.groenenhaag.tutorialmod.fluid.ModFluids;
 import net.groenenhaag.tutorialmod.item.ModItems;
 import net.groenenhaag.tutorialmod.networking.ModMessages;
 import net.groenenhaag.tutorialmod.painting.ModPaintings;
+import net.groenenhaag.tutorialmod.screen.ModMenuTypes;
+import net.groenenhaag.tutorialmod.screen.TutorialTableScreen;
 import net.groenenhaag.tutorialmod.villager.ModVillagers;
 import net.groenenhaag.tutorialmod.world.feature.ModConfiguredFeatures;
 import net.groenenhaag.tutorialmod.world.feature.ModPlacedFeatures;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.common.MinecraftForge;
@@ -40,6 +44,8 @@ public class TutorialMod
         ModPlacedFeatures.register(modEventBus);
         ModFluids.register(modEventBus);
         ModFluidTypes.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -62,6 +68,7 @@ public class TutorialMod
             ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_SOAP_WATER.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_SOAP_WATER.get(), RenderType.translucent());
 
+            MenuScreens.register(ModMenuTypes.TUTORIAL_TABLE_MENU.get(), TutorialTableScreen::new);
         }
     }
 }
