@@ -1,0 +1,11 @@
+{
+  "type": "tutorialmod:tutorial_table_crafting",
+  "ingredients": [
+    {
+      "item": "tutorialmod:yellow_gem"
+    }
+  ],
+  "output": {
+    "item": "tutorialmod:red_gem"
+  }
+}

@@ -1,6 +1,7 @@
 package net.groenenhaag.tutorialmod.block.entity;
 
 import net.groenenhaag.tutorialmod.item.ModItems;
+import net.groenenhaag.tutorialmod.recipe.TutorialTableRecipe;
 import net.groenenhaag.tutorialmod.screen.TutorialTableMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -26,6 +27,8 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 public class TutorialTableBlockEntity extends BlockEntity implements MenuProvider {
     private final ItemStackHandler itemHandler = new ItemStackHandler(3) {
@@ -71,7 +74,7 @@ public class TutorialTableBlockEntity extends BlockEntity implements MenuProvide
 
     @Override
     public Component getDisplayName() {
-        return Component.literal("Gem Infusing Station");
+        return Component.translatable("block.tutorialmod.tutorial_table");
     }
 
     @Nullable
@@ -111,7 +114,7 @@ public class TutorialTableBlockEntity extends BlockEntity implements MenuProvide
     public void load(CompoundTag nbt) {
         super.load(nbt);
         itemHandler.deserializeNBT(nbt.getCompound("inventory"));
-        progress = nbt.getInt("gem_infusing_station.progress");
+        progress = nbt.getInt("tutorial_table.progress");
     }
 
     public void drops() {
@@ -145,27 +148,40 @@ public class TutorialTableBlockEntity extends BlockEntity implements MenuProvide
         this.progress = 0;
     }
     private static void craftItem(TutorialTableBlockEntity entity) {
-        if(hasRecipe(entity)) {
-            entity.itemHandler.extractItem(1,1,false);
-            entity.itemHandler.setStackInSlot(2, new ItemStack(ModItems.RED_GEM.get(), entity.itemHandler.getStackInSlot(2).getCount() + 1));
-            entity.resetProgress();
-        }
-    }
-    private static boolean hasRecipe(TutorialTableBlockEntity entity) {
+        Level level = entity.level;
         SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
         for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
 
-        boolean hasRawGemInFirstSlot = entity.itemHandler.getStackInSlot(1).getItem() == ModItems.YELLOW_GEM.get();
-        return hasRawGemInFirstSlot && canInsertAmountIntoOutputSlot(inventory) && canInsertItemIntoOuputSlot(inventory, new ItemStack(ModItems.RED_GEM.get(), 1));
+        Optional<TutorialTableRecipe> recipe = level.getRecipeManager()
+                .getRecipeFor(TutorialTableRecipe.Type.INSTANCE, inventory, level);
+
+        if(hasRecipe(entity)) {
+            entity.itemHandler.extractItem(1,1,false);
+            entity.itemHandler.setStackInSlot(2, new ItemStack(recipe.get().getResultItem().getItem(), entity.itemHandler.getStackInSlot(2).getCount() + recipe.get().getResultItem().getCount()));
+            entity.resetProgress();
+        }
+    }
+    private static boolean hasRecipe(TutorialTableBlockEntity entity) {
+        Level level = entity.level;
+        SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
+        for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
+            inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
+        }
+
+        Optional<TutorialTableRecipe> recipe = level.getRecipeManager()
+                .getRecipeFor(TutorialTableRecipe.Type.INSTANCE, inventory, level);
+
+        return recipe.isPresent() && canInsertAmountIntoOutputSlot(inventory, recipe.get().getResultItem().getCount()) &&
+                canInsertItemIntoOuputSlot(inventory, recipe.get().getResultItem());
     }
 
     private static boolean canInsertItemIntoOuputSlot(SimpleContainer inventory, ItemStack itemStack) {
         return inventory.getItem(2).getItem() == itemStack.getItem() || inventory.getItem(2).isEmpty();
     }
 
-    private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
-        return inventory.getItem(2).getMaxStackSize() > inventory.getItem(2).getCount();
+    private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory, int count) {
+        return inventory.getItem(2).getMaxStackSize() >= inventory.getItem(2).getCount() + count;
     }
 }

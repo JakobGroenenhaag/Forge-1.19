@@ -8,6 +8,7 @@ import net.groenenhaag.tutorialmod.fluid.ModFluids;
 import net.groenenhaag.tutorialmod.item.ModItems;
 import net.groenenhaag.tutorialmod.networking.ModMessages;
 import net.groenenhaag.tutorialmod.painting.ModPaintings;
+import net.groenenhaag.tutorialmod.recipe.ModRecipes;
 import net.groenenhaag.tutorialmod.screen.ModMenuTypes;
 import net.groenenhaag.tutorialmod.screen.TutorialTableScreen;
 import net.groenenhaag.tutorialmod.villager.ModVillagers;
@@ -46,6 +47,7 @@ public class TutorialMod
         ModFluidTypes.register(modEventBus);
         ModBlockEntities.register(modEventBus);
         ModMenuTypes.register(modEventBus);
+        ModRecipes.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
